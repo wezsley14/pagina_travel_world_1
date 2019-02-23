@@ -1,0 +1,718 @@
+/* Reglas de uso general al todos los documentos  .HTML */
+* {
+     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif, verdana, serif;
+}
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Regla para el contenedor GRID principal */
+.grid {
+    display: grid;
+    grid-template-areas:
+        "logo superior superior"
+        "central central lateral"
+        "inferior inferior inferior";
+    grid-template-columns: 20% 3fr 25%;
+    grid-template-rows: 5em 3fr 5em;
+    grid-column-gap: 1em;
+    grid-row-gap: .2em;
+    background: rgba(230, 230, 230, 1);
+}
+
+
+/* Reglas para los GRIDs ITEMs del documento
+Declaración de las GRIDs AREAS:
+	LOGO
+	HEADER
+	MAIN
+	ASIDE
+	FOOTER */
+.logo {
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+}
+
+#header-page {
+    display: flex;
+    grid-area: superior;
+    align-items: flex-end;
+    justify-content: center;
+    transition: .5s linear;
+}
+
+#main-page {
+    grid-area: central;
+    margin: 3em auto;
+    padding: .4em;
+    
+}
+
+.sidebar {
+    grid-area: lateral;
+    margin: 3em auto;
+    width: 96%;
+}
+
+#footer-page {
+    grid-area: inferior;
+    background-color: rgba(10, 10, 10, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Reglas aplicadas al LOGO */ 
+.logo {
+    width: 100%;
+}
+.logo figure {
+    width: 100%;
+    height: 5em;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+}
+.logo figure img {
+    width: 100%;
+}
+
+
+/* Reglas para el HEADER y sus elementos: 
+	Menu Principal
+	Menu Desplegable en Horizontal */
+.header-general {
+    background: black;
+}
+.menu {
+    display: inline-flex;
+}
+
+.menu a {
+    display: block;
+    padding: 1em;
+    color: rgb(255, 243, 221);
+    font-size: 1.2rem;
+    transition: .4s ease;
+}
+.menu a:hover {
+    color: rgb(255, 255, 255)
+}
+.submenu {
+    border-radius: 0;
+    display: none;
+    z-index: 1;
+    background: rgba(43, 43, 43, .8);
+    transition: .4s ease
+}
+
+.submenu a {
+    color: #FFFFFF;
+    text-align: center;
+    padding: 8px;
+    margin: 0px auto;
+    width: 130px;
+    transition: .4s linear;
+    transform: scale(.9, .9);
+}
+
+.menu li:hover .submenu {
+    position: absolute;
+    display: block;
+}
+
+.submenu a:hover {
+    color: rgb(255, 243, 221);
+    background: rgba(12, 12, 12, .9);
+    transform: scale(1, 1);
+}
+
+
+/* Footer General de la Pagina */
+.about {
+    padding: .5em 1em
+}
+
+.about p {
+    text-align: center;
+    padding: 2px;
+    color: white;
+}
+
+.about p:first-of-type {
+    margin-bottom: .6em
+}
+
+.about spam {
+    color: burlywood;
+    font-weight: bold;
+    font-family: tahoma;
+    letter-spacing: 1px;
+}
+
+.about spam::after {
+    width: ;
+    background: darkgrey;
+    display: block;
+    height: 4px;
+    content: "";
+}
+
+
+
+
+/* Estas reglas son de uso general
+Se aplican a varias paginas al mismo tiempo
+
+*/
+
+.contenido-central-general {
+    margin: 2em auto;
+    padding: .2em;
+    width: 96%;
+    box-shadow: 1px 1px 10px 4px rgba(0, 0, 0, .5);
+}
+div.titulo-contenido-central {
+    width: 100%;
+    background: #EFFCFF;
+}
+header.titulo-central {
+    margin: 0 auto;
+    padding: 2em 1em;
+    border-radius: .2em;
+}
+div.contenedor-articulos {
+    margin: .2em auto;
+    padding: .4em 1em;
+    width: 98%;
+}
+
+div.contenedor-articulos .ciudad:first-child {
+    margin-top: 2em
+}
+
+/*Reglas puntuales para el contenido
+Tambien generales, aplicadas a varios documentos al mismo tiempo
+*/
+.contenedor-articulos .ciudad {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .2fr 1fr;
+    grid-column-gap: .4em;
+    grid-row-gap: .25em;
+    margin: 1.4em auto;
+    box-shadow: 1px 1px 10px 1px gray;
+    border-radius: .8em;
+    transition: .1s linear;
+}
+.ciudad:hover {
+    box-shadow: 1px 1px 10px 1px black;
+    transition: .1s linear;
+}
+.ciudad figure {
+    width: 100%;
+    display: flex;
+    align-items: center
+}
+.ciudad figure img {
+    width: 100%;
+    margin: .1em;
+    border-radius: .8em;
+    border: solid 2.6px gray;
+    transform: scale(.96, .96);
+    transition: .6s ease-out
+}
+.ciudad figure img:hover {
+    transform: scale(1, 1);
+    transition: .6s ease-out
+}
+.ciudad:nth-child(odd) figure {
+    grid-column: 1;
+    grid-row: 1 / -1;
+}
+.ciudad:nth-child(even) figure {
+    grid-column: 2;
+    grid-row: 1 / -1;
+}
+.ciudad header h1 {
+    font-size: 1.6em;
+    text-align: center;
+    margin: .5em auto;
+}
+.ciudad p {
+    font-size: 1.2em;
+    text-align: justify;
+    text-indent: 4px;
+    line-height: 1.3;
+    margin: .5em .4em;
+}
+
+
+/* Reglas aplicadas al menu lateral de cada documento
+Son reglas generales
+*/
+.sidebar .titulo-lateral {
+    margin: .3em auto;
+    padding: .4em;
+    width: 96%;
+    border-radius: .2em;
+    box-shadow: 1px 1px 6px 2px black
+}
+.sidebar .titulo-lateral h1 {
+    color: white;
+    font-size: 1.6em;
+    text-align: center;
+    text-shadow: 2px 1px 2px black;
+}
+.menu-ciudades {
+    position: sticky;
+    top: 1.4em;
+    margin: 2.2em auto;
+    padding: .2em;
+    width: 96%;
+    border-radius: .4em;
+    box-shadow: 1px 1px 10px 1px black;
+}
+.menu-ciudades a {
+    font-size: 1.30em;
+    text-align: center;
+    padding: .3em;
+    display: block;
+    border-radius: 2px;
+    border: 1px solid rgba(10, 10, 10, .4);
+}
+
+/* Estas reglas se aplican al contenido referente a Europa
+Solo se aplican a una parte
+
+*/
+.europa {
+    background: rgb(255, 253, 240);
+    border-radius: 4px;
+}
+.articulos-europa .ciudad:nth-child(even) {
+    background-color: rgba(0, 124, 230, 0.51) !important;;
+}
+.articulos-europa .ciudad:nth-child(odd) {
+    background-color: rgba(0, 90, 220, .2) !important;
+}
+.ciudades-europa h1 {
+    font-size: 3em;
+    color: #234a71;
+    margin: .5em .4em;
+}
+.ciudades-europa p {
+    font-size: 18px;
+    text-align: justify;
+    line-height: 1.6;
+    text-indent: .6em;
+}
+
+/* Estas reglas se aplican al contenido referente a Asia
+Solo se aplican a una parte
+
+*/
+.asia {
+    border-radius: .4em;
+    background: #f7eeb4;
+}
+.ciudades-asia {
+    background: #F1F1F1;
+    box-shadow: 1px 1px 12px 1px black;
+}
+.ciudades-asia h1 {
+    font-size: 3em;
+    color: #de3b65;
+    text-align: center;
+    text-shadow: 2px 1px 2px black;
+    margin-bottom: .5em;
+    position: relative;
+    animation: titulo-asia .8s linear;
+}
+
+.ciudades-asia p {
+    font-size: 20px;
+    text-align: justify;
+    line-height: 1.5;
+    text-indent: .5em
+}
+.asia .ciudad:nth-child(odd) {
+    background: #f5f5f5
+}
+.asia .ciudad:nth-child(even) {
+    background: #f3f2db
+}
+.asia .ciudad:nth-child(odd) h1 {
+    color: #be281e;
+}
+.asia .ciudad:nth-child(even) h1 {
+    color: #070908;
+}
+.ciudad h1 {
+    text-shadow: 1px 1px 1px whitesmoke
+}
+
+
+/* Reglas aplicables unicamente al menu lateral del documento "ciudades-europeas.html"
+Son reglas de uso preciso o unico
+*/
+.sidebar-europa {
+    background: transparent;
+}
+.sidebar-europa .ciudades-europa-lateral {
+    background-color: #0f8fd088;
+    padding: 0 1em;
+}
+.menu-ciudades-europa {
+    background: transparent
+}
+.menu-ciudades-europa a {
+    color: #fff;
+    border-radius: .1em;
+    transition: .2s linear;
+    transform: scale(.9, .9);
+    background:  rgba(15, 143, 208, 0.8);
+}
+.menu-ciudades-europa a:hover {
+    color: #fff;
+    background: linear-gradient(to bottom, rgb(15, 143, 208), rgba(77, 176, 227, 0.9));
+    box-shadow: 1px 1px 6px 1px black;
+    transform: scale(1, 1);
+    transform-origin: center;
+    transition: .2s linear;
+}
+
+/* Reglas aplicables unicamente al menu lateral del documento "ciudades-asiaticas.html"
+Son reglas de uso preciso o unico
+*/
+.menu-ciudades-asia {
+    background: 
+}
+.menu-ciudades-asia a {
+    color: whitesmoke;
+    background: linear-gradient(rgba(255, 150, 120, .8), rgba(220, 20, 60, .8));;
+    transition: .3s linear;
+    transform: scale(.95,.95);
+}
+.menu-ciudades-asia a:hover {
+    color: white;
+    background: linear-gradient(rgba(255, 150, 120, 1), rgba(220, 20, 60, 1));
+    box-shadow: 1px 3px 4px 1px rgba(33, 33, 33, .5);
+    transform: scale(1,1);
+    transform-origin: center;
+    transition: .3s linear;
+}
+
+
+/* Seccion aplicada al documento .HTML "Otras Ciudades:
+    Suramerica
+    Africa
+    Oceania
+    Norte y Centroamerica
+*/
+
+.otras {
+    background: #fcfcfc
+}
+.otras .titulo-central {
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(110, 110, 220, .6));
+}
+.ciudades-otras h1 {
+    font-size: 3em;
+    margin: .2em auto .4em;
+}
+.ciudades-otras p {
+    font-size: 1.2em;
+    line-height: 1.4;
+    margin: .2em auto;
+    text-align: justify;
+}
+
+.ciudades-suramerica,
+.ciudades-africa,
+.ciudades-oceania,
+.ciudades-norte-centro {
+    box-shadow: 1px 1px 8px 2px;
+    margin: 1.5em auto;
+    padding: 1em;
+    border-radius: 2px;
+}
+.ciudades-suramerica header:first-child, 
+.ciudades-africa header:first-child, 
+.ciudades-oceania header:first-child, 
+.ciudades-norte-centro header:first-child {
+    font-size: 1.3em;
+    padding: .7em;
+}
+.otras article:nth-child(even) {
+    background: aquamarine
+}
+.otras article:nth-child(odd) {
+    background: aqua
+}
+
+/******* SURAMERICA *******/
+#suramerica {
+    background: #f4f4f4
+}
+#suramerica header:first-child h1 {
+    color: #ff8751;
+    text-shadow: 1px 2px 1px black;
+}
+
+/******* AFRICA *******/
+#africa  {
+    
+}
+#africa header:first-child h1 {
+    
+}
+
+/******* OCEANIA *******/
+#oceania {
+    
+}
+#oceania header:first-child h1 {
+    
+}
+
+/******* NORTE & CENTRO AMERICA *******/
+#norte-centroamerica {
+    
+}
+#norte-centroamerica header:first-child h1 {
+    
+}
+
+
+/* Menu LATERAL de la pagina/seccion "Otras ciudades" */
+.side-otras {
+    background: radial-gradient(circle, rgba(250,250,250,1), rgba(33,33,33,1));
+}
+
+.menu-ciudades-otras {
+    background: rgba(110, 110, 220, .5);
+}
+.menu-ciudades-otras a {
+    color: white;
+    background: rgba(110, 140, 240, 1);
+    transition: .3s linear;
+    transform: scale(.9, .9);
+}
+.menu-ciudades-otras a:hover {
+    background: rgba(110, 110, 220, 1);
+    transform: scale(1, 1)
+}
+
+
+/* Reglas de estilos para los documentos sobre las 7 maravillas del mundo Moderno y Antiguo
+Estas reglas se aplican solamente a 2 documentos:
+    Mundo Antiguo y Mundo Moderno
+        Titulo y texto superior - principal
+        Articulos - Imagenes - Titulos - Subtitulos - Textos
+        Menu Lateral o SideBar
+*/
+.titulo-principal {
+    padding: .8em;
+    margin: .6em auto;
+    background: radial-gradient(ellipse, rgba(240, 120, 100, 1), rgba(240, 120, 100, .7), rgba(240, 120, 100, 1), black);
+    border-radius: .2em;
+    box-shadow: 1px 1px 7px 1px #141420;
+}
+.titulo-principal h1 {
+    padding: .3em;
+    margin: .1em auto;
+    font-size: 2.6em;
+    color: oldlace;
+    text-shadow: 2px 1px 11px black;
+}
+.titulo-principal p {
+    padding: .4em .5em;
+    margin: .4em .1em;
+    line-height: 23px;
+    font-size: 1.1em;
+    color: rgb(255, 255, 255)
+}
+strong {
+    text-decoration: underline
+}
+.contenido-central {
+    display: flex;
+    flex-direction: column
+}
+.article .titulo-maravilla {
+    width: 100%
+}
+.titulo-maravilla a {
+    font-size: 1.4em;
+    color: firebrick;
+}
+.titulo-maravilla a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    display: block;
+    transition: .4s linear;
+}
+.titulo-maravilla a:hover::after {
+    content: "";
+    width: 50%;
+    height: 2px;
+    display: block;
+    background: rgba(178, 34, 34, 1);
+    transition: .6s linear;
+}
+.article {
+    margin: 1em auto;
+    padding: .5em;
+    border-radius: .4em;
+    box-shadow: 0px 4px 5px black;
+    flex-basis: 0;
+    flex-grow: 1;
+}
+.article:nth-child(1) {
+    margin: 2em auto 1em auto;
+}
+.article:nth-child(odd) {
+    background: rgba(220, 220, 220, .6);
+}
+.article:nth-child(even) {
+    background: rgba(120, 120, 120, .6)
+}
+.img-maravilla {
+    width: 48%;
+    float: right;
+}
+.img-maravilla img {
+    width: 100%;
+    border-radius: .6em;
+    border: solid .3em black;
+}
+.article p {
+    text-align: justify;
+    width: 50%;
+    padding: .5em .1em;
+    font-size: 1.12em
+}
+
+/* Estilos / Reglas para el menu lateral de mundo-antiguo y mundo-moderno */
+.sidebar-maravillas .lateral-maravillas h1 {
+    color: black;
+    text-shadow: 1px 2px 1px navajowhite
+}
+.lateral-maravillas {
+    background: rgba(244, 220, 172, 1);
+    color: red;
+}
+.menu-maravillas {
+    position: sticky;
+    top: 0;
+    width: 98%;
+    padding: .2em 1em;
+    margin: 0 auto;
+}
+.menu-mundo-antiguo, .menu-mundo-moderno {
+    margin: .8em auto;
+    background: oldlace;
+    box-shadow: 1px 1px 8px 2px black;
+    border-radius: 0 0 .6em .6em
+}
+.menu-mundo-moderno header, .menu-mundo-antiguo header {
+    background: whitesmoke;
+}
+.titulo-antiguo, .titulo-moderno {
+    font-size: 1em;
+    text-align: center;
+    padding: .3em
+}
+.menu-mundo-antiguo a, .menu-mundo-moderno a {
+    font-size: 1.2em;
+    text-align: center;
+    padding: .4em;
+    display: block;
+    transition: .2s linear;
+}
+.menu-mundo-antiguo a:hover, .menu-mundo-moderno a:hover {
+    transition: .2s linear;
+    color: rgb(255, 255, 255);
+    background: rgba(240, 120, 100, 1)
+}
+.menu-mundo-moderno a, .menu-mundo-antiguo a {
+    color: rgb(236, 128, 164);
+}
+
+
+
+/*Media Queries para elementos en general y algunos puntuales*/
+@media screen and (max-width: 960px) {
+    .contenedor-articulos .ciudad {
+        display: flex;
+        flex-direction: column;
+    }
+    .contenedor-articulos .ciudad figure {
+        align-self: center;
+    }
+}
+@media screen and (max-width: 768px) {
+    .grid {
+        grid-template-areas:
+            "logo superior superior"
+            "central central central"
+            "inferior inferior inferior";
+    }
+    header.titulo-central h1{
+        font-size: 2.2em
+    }
+    aside {
+        display: none;
+    }
+    .contenedor-articulos .ciudad figure {
+    }
+}
+@media screen and (max-width: 600px) {
+    .grid {
+        grid-template-areas:
+            "superior superior superior"
+            "central central central"
+            "inferior inferior inferior";
+    }
+    #header-page a {
+        font-size: 1em;
+    }
+    .logo {
+        display: none
+    }
+    header.titulo-central h1{
+        font-size: 1.5em;
+    }
+    header.titulo-central p {
+        font-size: 1em
+    }
+    .contenedor-articulos .ciudad figure {
+        
+    }
+    .contenedor-articulos .ciudad figure img {
+        transform: scale(1,1);
+        filter: ;
+    }
+    .contenedor-articulos .ciudad header h1 {
+        font-size: 1.2em;
+        margin: .2em auto
+    }
+    .contenedor-articulos .ciudad p {
+        font-size: 1em;
+        text-indent: 0;
+        margin: .25em .2em;
+        line-height: 1.2;
+    }
+}
